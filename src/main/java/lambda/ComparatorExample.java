@@ -63,9 +63,19 @@ public class ComparatorExample {
         listDevs.forEach((developer)-> System.out.println(developer));
 
         //use listDevs.sort()
+        /** listDevs.sort((o1,o2)->o1.getSalary().compareTo(o2.getSalary()));*/
+        //  上下两行作用一致 下行更加简洁明了
         listDevs.sort(Comparator.comparing(Developer::getSalary));
         System.out.println("After Salary Sort");
         listDevs.forEach((dev)-> System.out.println(dev));
+
+        listDevs.sort(Comparator.comparing(Developer::getName));
+        System.out.println("After Name Sort");
+        listDevs.forEach((dev) -> System.out.println(dev));
+
+        //Comparator.reversed will set the list to reversed
+        listDevs.sort(Comparator.comparing(Developer::getName).reversed());
+
 
 
     }
